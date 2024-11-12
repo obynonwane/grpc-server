@@ -20,8 +20,11 @@ func (l *LogServer) WriteLog(ctx context.Context, req *logs.LogRequest) (*logs.L
 	input := req.GetLogEntry()
 
 	log.Println(input, "the input")
+	log.Println(input.Data, "I just logged the data")
 
-	return &logs.LogResponse{Result: "succsful"}, nil
+	// return response
+	res := &logs.LogResponse{Result: "logged!"}
+	return res, nil
 }
 
 // start listening to tcp connection
